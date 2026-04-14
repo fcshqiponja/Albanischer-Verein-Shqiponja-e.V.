@@ -65,25 +65,30 @@ body::before {
 
 .logo-ring {
   position: relative;
-  width: 148px; height: 148px;
-  margin-bottom: 1.6rem;
+  width: 148px;
+  height: 177px; /* shield proportions: 148 × (620/520) */
+  margin: 0 auto 1.6rem;
   animation: fadeDown 0.7s cubic-bezier(.22,1,.36,1) both;
 }
 
+/* Outer ring — shield-shaped, spinning conic gradient */
 .logo-ring::before {
   content: '';
-  position: absolute; inset: -6px;
-  border-radius: 50%;
+  position: absolute;
+  inset: -7px;
   background: conic-gradient(from 0deg, var(--red), var(--gold), var(--red2), var(--red));
+  clip-path: polygon(4% 0%, 96% 0%, 100% 79%, 50% 100%, 0% 79%);
   animation: spin 8s linear infinite;
-  opacity: 0.6;
+  opacity: 0.72;
 }
 
+/* Gap layer — slightly smaller shield, covers the ring leaving ~5px visible */
 .logo-ring::after {
   content: '';
-  position: absolute; inset: -2px;
-  border-radius: 50%;
+  position: absolute;
+  inset: -2px;
   background: var(--black);
+  clip-path: polygon(4% 0%, 96% 0%, 100% 79%, 50% 100%, 0% 79%);
 }
 
 @keyframes spin { to { transform: rotate(360deg); } }
@@ -92,7 +97,7 @@ body::before {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: contain;
-  border-radius: 50%;
+  border-radius: 0; /* no more circle clipping */
   z-index: 1;
   filter: drop-shadow(0 0 18px rgba(200,16,46,0.5));
 }
