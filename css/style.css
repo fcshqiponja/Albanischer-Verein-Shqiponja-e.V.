@@ -167,8 +167,30 @@ img {
   transition: color var(--transition);
 }
 
-.nav__logo-icon {
-  font-size: 28px;
+.nav__logo-img {
+  width: 42px;
+  height: 50px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.nav__logo-texts {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.nav__logo-sub {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  transition: color var(--transition);
+}
+
+.header.scrolled .nav__logo-sub {
+  color: var(--color-gray);
 }
 
 .nav__logo-text span {
@@ -260,6 +282,13 @@ img {
   position: relative;
   z-index: 1;
   padding-top: var(--nav-height);
+}
+
+.hero__logo {
+  width: 130px;
+  height: auto;
+  margin-bottom: 24px;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.5));
 }
 
 .hero__tagline {
@@ -417,29 +446,17 @@ img {
   position: relative;
 }
 
-.about__image-placeholder {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-  border-radius: var(--radius-lg);
-  aspect-ratio: 4/3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  box-shadow: var(--shadow-lg);
+.about__logo-svg {
+  width: 100%;
+  max-width: 440px;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 12px 40px rgba(0,0,0,0.25));
+  transition: transform var(--transition);
 }
 
-.about__image-placeholder span {
-  font-size: 80px;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-}
-
-.about__image-placeholder p {
-  color: rgba(255,255,255,0.8);
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 4px;
-  text-transform: uppercase;
+.about__logo-svg:hover {
+  transform: scale(1.03);
 }
 
 /* --- Cards --- */
@@ -774,11 +791,25 @@ img {
   gap: 12px;
 }
 
+.footer__logo-img {
+  width: 56px;
+  height: 67px;
+  object-fit: contain;
+  margin-bottom: 4px;
+}
+
 .footer__brand-name {
   font-size: 20px;
   font-weight: 700;
   color: var(--color-white);
-  margin-left: 4px;
+}
+
+.footer__brand-sub {
+  font-size: 12px !important;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45) !important;
+  margin-bottom: 4px !important;
 }
 
 .footer__brand p {
