@@ -65,30 +65,25 @@ body::before {
 
 .logo-ring {
   position: relative;
-  width: 148px;
-  height: 177px; /* shield proportions: 148 × (620/520) */
-  margin: 0 auto 1.6rem;
+  width: 148px; height: 148px;
+  margin-bottom: 1.6rem;
   animation: fadeDown 0.7s cubic-bezier(.22,1,.36,1) both;
 }
 
-/* Outer ring — shield-shaped, spinning conic gradient */
 .logo-ring::before {
   content: '';
-  position: absolute;
-  inset: -7px;
+  position: absolute; inset: -6px;
+  border-radius: 50%;
   background: conic-gradient(from 0deg, var(--red), var(--gold), var(--red2), var(--red));
-  clip-path: polygon(4% 0%, 96% 0%, 100% 79%, 50% 100%, 0% 79%);
   animation: spin 8s linear infinite;
-  opacity: 0.72;
+  opacity: 0.6;
 }
 
-/* Gap layer — slightly smaller shield, covers the ring leaving ~5px visible */
 .logo-ring::after {
   content: '';
-  position: absolute;
-  inset: -2px;
+  position: absolute; inset: -2px;
+  border-radius: 50%;
   background: var(--black);
-  clip-path: polygon(4% 0%, 96% 0%, 100% 79%, 50% 100%, 0% 79%);
 }
 
 @keyframes spin { to { transform: rotate(360deg); } }
@@ -97,7 +92,7 @@ body::before {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: contain;
-  border-radius: 0; /* no more circle clipping */
+  border-radius: 50%;
   z-index: 1;
   filter: drop-shadow(0 0 18px rgba(200,16,46,0.5));
 }
@@ -135,12 +130,35 @@ body::before {
   animation: fadeDown 0.8s 0.2s cubic-bezier(.22,1,.36,1) both;
 }
 
-/* thin gold divider */
+/* thin gold divider with pulse */
 .divider {
-  width: 60px; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--red), var(--gold), var(--red), transparent);
   margin: 1.4rem auto 1.8rem;
-  animation: fadeDown 0.8s 0.25s cubic-bezier(.22,1,.36,1) both;
+  animation: fadeDown 0.8s 0.25s cubic-bezier(.22,1,.36,1) both, dividerPulse 3s 1s ease-in-out infinite;
+}
+@keyframes dividerPulse {
+  0%, 100% { width: 50px; opacity: 0.6; }
+  50%       { width: 90px; opacity: 1; }
+}
+
+/* second ambient ring in hero */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 160px; left: 50%; transform: translateX(-50%);
+  width: 210px; height: 210px;
+  border-radius: 50%;
+  border: 1px solid rgba(212,168,67,0.1);
+  box-shadow:
+    0 0 0 22px rgba(212,168,67,0.04),
+    0 0 0 46px rgba(200,16,46,0.03);
+  pointer-events: none;
+  animation: ringPulse 5s ease-in-out infinite;
+}
+@keyframes ringPulse {
+  0%, 100% { transform: translateX(-50%) scale(1);    opacity: 0.5; }
+  50%       { transform: translateX(-50%) scale(1.06); opacity: 1;   }
 }
 
 @keyframes fadeDown {
@@ -226,6 +244,20 @@ body::before {
 }
 .card-icon svg { width: 22px; height: 22px; }
 
+/* Spinning ring around each icon (appears on card hover) */
+.card-icon::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 16px;
+  background: conic-gradient(from 0deg, var(--red), var(--gold), var(--red2), var(--red));
+  opacity: 0;
+  z-index: -1;
+  animation: spin 4s linear infinite;
+  transition: opacity 0.25s;
+}
+.link-card:hover .card-icon::before { opacity: 0.85; }
+
 .ic-red    { background: linear-gradient(135deg,#c8102e,#7a0018); }
 .ic-ig     { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
 .ic-wa     { background: #25D366; }
@@ -268,8 +300,22 @@ body::before {
   text-transform: uppercase;
   color: var(--gold);
   margin: 1.6rem 0 0.75rem;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   animation: fadeUp 0.6s 0.28s both;
+}
+
+/* Spinning conic dot before section label */
+.section-label::before {
+  content: '';
+  display: block;
+  flex-shrink: 0;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--red), var(--gold), var(--red2), var(--red));
+  animation: spin 3s linear infinite;
+  opacity: 0.9;
 }
 
 /* ─── FOOTER ─── */
