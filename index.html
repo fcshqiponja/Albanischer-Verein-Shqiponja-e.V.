@@ -52,14 +52,14 @@ body::before {
   position: relative;
 }
 
-/* decorative arcs */
+/* subtle ambient glow – bleibt als weicher Unterton */
 .hero::before {
   content: '';
   position: absolute;
   top: 0; left: 50%; transform: translateX(-50%);
-  width: 340px; height: 340px;
+  width: 420px; height: 420px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(200,16,46,0.18) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(200,16,46,0.07) 0%, transparent 65%);
   pointer-events: none;
 }
 
@@ -142,20 +142,19 @@ body::before {
   50%       { width: 90px; opacity: 1; }
 }
 
-/* Albanian eagle background in hero */
+/* Albanian eagle – replaces the background circle */
 .hero-eagle {
   position: absolute;
   top: 50%; left: 50%;
-  transform: translate(-50%, -54%);
-  width: 310px;
-  opacity: 0.055;
+  transform: translate(-50%, -52%);
+  width: 360px;
+  opacity: 0.11;
   pointer-events: none;
-  filter: blur(0.6px);
-  animation: eagleFade 6s ease-in-out infinite;
+  animation: eagleFade 5s ease-in-out infinite;
 }
 @keyframes eagleFade {
-  0%, 100% { opacity: 0.045; }
-  50%       { opacity: 0.07;  }
+  0%, 100% { opacity: 0.08; }
+  50%       { opacity: 0.14; }
 }
 
 @keyframes fadeDown {
@@ -241,19 +240,6 @@ body::before {
 }
 .card-icon svg { width: 22px; height: 22px; }
 
-/* Spinning ring around each icon (appears on card hover) */
-.card-icon::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 16px;
-  background: conic-gradient(from 0deg, var(--red), var(--gold), var(--red2), var(--red));
-  opacity: 0;
-  z-index: -1;
-  animation: spin 4s linear infinite;
-  transition: opacity 0.25s;
-}
-.link-card:hover .card-icon::before { opacity: 0.85; }
 
 .ic-red    { background: linear-gradient(135deg,#c8102e,#7a0018); }
 .ic-ig     { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
