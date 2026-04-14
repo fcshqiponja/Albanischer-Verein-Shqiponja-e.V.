@@ -52,11 +52,13 @@ body::before {
   position: relative;
 }
 
-/* subtle ambient glow – bleibt als weicher Unterton */
+/* subtle ambient glow – centred on logo ring */
 .hero::before {
   content: '';
   position: absolute;
-  top: 0; left: 50%; transform: translateX(-50%);
+  top: calc(3rem + 74px);   /* = hero padding-top + half logo height */
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 420px; height: 420px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(200,16,46,0.07) 0%, transparent 65%);
@@ -145,8 +147,9 @@ body::before {
 /* Albanian eagle – replaces the background circle */
 .hero-eagle {
   position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -52%);
+  top: calc(3rem + 74px);   /* same center as logo ring */
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 360px;
   opacity: 0.11;
   pointer-events: none;
