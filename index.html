@@ -1108,11 +1108,11 @@ body::before {
 
 <div class="price-badge">
   <span class="price-big">120 €</span>
-  <div><div class="price-lbl">Mitgliedsbeitrag / Jahr</div><div class="price-sub2">einmalige Überweisung</div></div>
+  <div><div class="price-lbl" data-i18n="m.beitrag">Mitgliedsbeitrag / Jahr</div><div class="price-sub2" data-i18n="m.ew">einmalige Überweisung</div></div>
 </div>
 
 <div class="bank-row">
-  <div class="bank-row-l"><span class="bank-lbl">Empfänger</span><span class="bank-val">Alb. Verein „Shqiponja" e.V.</span></div>
+  <div class="bank-row-l"><span class="bank-lbl" data-i18n="m.empfaenger">Empfänger</span><span class="bank-val">Alb. Verein „Shqiponja" e.V.</span></div>
   <button class="copy-btn" data-copy="Albanischer Verein Shqiponja e.V."><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button>
 </div>
 <div class="bank-row">
@@ -1124,15 +1124,15 @@ body::before {
   <button class="copy-btn" data-copy="GENODE61UBE"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button>
 </div>
 <div class="bank-row">
-  <div class="bank-row-l"><span class="bank-lbl">Verwendungszweck</span><span class="bank-val">Mitgliedsbeitrag 2026 – [Dein Name]</span></div>
+  <div class="bank-row-l"><span class="bank-lbl" data-i18n="m.verwendung">Verwendungszweck</span><span class="bank-val" data-i18n="m.usage.val">Mitgliedsbeitrag 2026 – [Dein Name]</span></div>
   <button class="copy-btn" data-copy="Mitgliedsbeitrag 2026"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button>
 </div>
 
 <button class="iban-cta" data-copy-iban="true">
   <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-  IBAN kopieren &amp; Banking öffnen
+  <span data-i18n-html="m.cta.iban">IBAN kopieren &amp; Banking öffnen</span>
 </button>
-<p class="sheet-note">IBAN in die Zwischenablage kopieren → Banking-App öffnen → einfügen</p>
+<p class="sheet-note" data-i18n="m.note">IBAN in die Zwischenablage kopieren → Banking-App öffnen → einfügen</p>
 
   </div>
 </div>
@@ -1425,7 +1425,14 @@ document.addEventListener('DOMContentLoaded', function() {
       'role.pruef':        'Kassenprüfer',
       'ueber.board.note':  'Gewählt für 2 Jahre · Vertretung durch je 2 Vorstandsmitglieder',
       'ueber.price.per':   '/ Jahr · ab 14 Jahren',
-      'ueber.member.desc': 'Aufnahmeantrag schriftlich oder mündlich beim Vorstand. Stimmrecht in der Mitgliederversammlung & Teilnahme an allen Vereinsveranstaltungen.'
+      'ueber.member.desc': 'Aufnahmeantrag schriftlich oder mündlich beim Vorstand. Stimmrecht in der Mitgliederversammlung & Teilnahme an allen Vereinsveranstaltungen.',
+      'm.beitrag':        'Mitgliedsbeitrag / Jahr',
+      'm.ew':             'einmalige Überweisung',
+      'm.empfaenger':     'Empfänger',
+      'm.verwendung':     'Verwendungszweck',
+      'm.usage.val':      'Mitgliedsbeitrag 2026 – [Dein Name]',
+      'm.cta.iban':       'IBAN kopieren &amp; Banking öffnen',
+      'm.note':           'IBAN in die Zwischenablage kopieren → Banking-App öffnen → einfügen'
     },
     en: {
       'hero.title':           'Albanian Club<br>„Shqiponja” e.V.',
@@ -1481,7 +1488,14 @@ document.addEventListener('DOMContentLoaded', function() {
       'role.pruef':        'Auditor',
       'ueber.board.note':  'Elected for 2 years · Represented by 2 board members each',
       'ueber.price.per':   '/ Year · from age 14',
-      'ueber.member.desc': 'Application for membership in writing or verbally to the board. Voting rights at the general assembly & participation in all club events.'
+      'ueber.member.desc': 'Application for membership in writing or verbally to the board. Voting rights at the general assembly & participation in all club events.',
+      'm.beitrag':        'Membership Fee / Year',
+      'm.ew':             'one-time transfer',
+      'm.empfaenger':     'Recipient',
+      'm.verwendung':     'Purpose',
+      'm.usage.val':      'Membership Fee 2026 – [Your Name]',
+      'm.cta.iban':       'Copy IBAN &amp; open banking app',
+      'm.note':           'Copy IBAN to clipboard → open banking app → paste'
     },
     sq: {
       'hero.title':           'Shoqata Shqiptare<br>„Shqiponja” e.V.',
@@ -1537,7 +1551,14 @@ document.addEventListener('DOMContentLoaded', function() {
       'role.pruef':        'Revizori',
       'ueber.board.note':  'Zgjedhur për 2 vjet · Përfaqësim nga 2 anëtarë bordi secili',
       'ueber.price.per':   '/ Vit · nga 14 vjeç',
-      'ueber.member.desc': 'Kërkesa për anëtarësi me shkrim ose me gojë pranë bordit. E drejta e votës në mbledhjen e anëtarëve & pjesëmarrja në të gjitha aktivitetet.'
+      'ueber.member.desc': 'Kërkesa për anëtarësi me shkrim ose me gojë pranë bordit. E drejta e votës në mbledhjen e anëtarëve & pjesëmarrja në të gjitha aktivitetet.',
+      'm.beitrag':        'Tarifa e anëtarësisë / Vit',
+      'm.ew':             'transferim i njëhershëm',
+      'm.empfaenger':     'Marrësi',
+      'm.verwendung':     'Qëllimi',
+      'm.usage.val':      'Tarifa e anëtarësisë 2026 – [Emri juaj]',
+      'm.cta.iban':       'Kopjo IBAN &amp; hap aplikacionin e bankës',
+      'm.note':           'Kopjo IBAN → hap aplikacionin e bankës → ngjit'
     }
   };
 
